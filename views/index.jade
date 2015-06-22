@@ -102,11 +102,7 @@ block scripts
 
 				if (entry.lat !== "" && entry.lon !== "") {
 
-					var description = '<pre>' + entry.idea.replace(/(?:\\[rn])+/g, "\r\n\r\n"); + '</pre><p>';
-
-					if (entry.numberOfPeople) {
-						description += '<br><br><b>Number of people impacted:</b> ' + entry.numberOfPeople + '<br>';
-					}
+					var description = '<pre>' + entry.idea.replace(/(?:\\[rn])+/g, "\r\n\r\n") + '</pre>';
 
 					if (entry.created_at) {
 						var date = new Date(entry.created_at);
