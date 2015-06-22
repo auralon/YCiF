@@ -711,9 +711,13 @@ hr {
 #modal img {
 	height: 100px;
 	position: absolute;
-	left: -122px;
-	margin-left: 50%;
-	top: -50px;
+	top: -46px;
+	left: 50%;
+	margin-left: -121px;
+}
+
+#modal h3 {
+	margin-top: 45px;
 }
 
 /*
@@ -920,10 +924,10 @@ body.phone {
 	left: 55%;
 }
 
-.phone #modal img {
+/*.phone #modal img {
 	height: 70px;
 	left: -53px;
-}
+}*/
 
 .phone h3 {
 	font-size: 1.5rem;
@@ -981,18 +985,6 @@ body.phone {
 	vertical-align: middle;
 }
 
-.phone #sidebarFooter span {
-	text-align: center;
-}
-
-.phone  #sidebarFooter span:first-of-type {
-	width: 35%;
-}
-
-.phone  #sidebarFooter span:nth-of-type(2) {
-	width: 65%;
-}
-
 @media screen and (max-width: 768px) {
 	aside {
 		min-width: 400px;
@@ -1000,17 +992,11 @@ body.phone {
 }
 
 @media screen and (min-width: 1450px){
-	#sidebarFooter span.copyright {
-		font-size: 0.7rem;
-	}
 	a.social i {
 		font-size: 1.35rem;
 	}
 }
 @media screen and (min-width: 1600px){
-	#sidebarFooter span.copyright {
-		font-size: 1rem;
-	}
 	a.social i {
 		font-size: 1.4rem;
 	}
