@@ -309,10 +309,8 @@ router.get('/download', function(req, res) {
 		var csvData = [];
 
 		var headers = {
-			fiveWays: '5 ways to pledge to become a Badge partner',
 			idea: 'Tell us about your badging ideas',
 			topic: 'Topic',
-			numberOfPeople: 'How many people will your badging efforts impact?',
 			location: 'Location',
 			email: 'Email Address',
 			name: 'Name',
@@ -325,10 +323,8 @@ router.get('/download', function(req, res) {
 			var date = new Date(data[i].created_at);
 			date = date.toISOString().substr(0, 19).replace('T', ' ');
 			csvData.push({
-				fiveWays: data[i].fiveWays,
 				idea: data[i].idea,
 				topic: data[i].topic,
-				numberOfPeople: data[i].numberOfPeople,
 				location: data[i].location,
 				email: data[i].email,
 				name: data[i].name,

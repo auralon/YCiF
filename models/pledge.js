@@ -38,10 +38,8 @@ var sequence = sequenceGenerator('pledge');
 
 var Pledge = new Schema({
     uid             : Number,
-    fiveWays        : String,
     idea            : String,
     topic           : String,
-    numberOfPeople  : String,
     location        : String,
     country         : String,
     lat             : String,
