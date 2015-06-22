@@ -1,0 +1,79 @@
+#pledge.content
+    form#createPledge(action='/createPledge', method='post', accept-charset='utf-8')
+        #stageOne.section
+            p
+                | Pledge your support for Badge the World! Badge the World is the new social
+                | and technology movement to capture recognition for learning that happens
+                | anywhere.
+            input(type='hidden', name='_csrf', value='#{csrfToken}')
+            input(type='hidden', name='lat', value='')
+            input(type='hidden', name='lon', value='')
+            h2
+                | Tell us about how you are going to influence change for young carers... 
+                span.required *
+            textarea#idea.required(name='idea', rows='4', cols='55', dir='auto', aria-label='Tell us about your badging ideas...  ', aria-required='true', required='')
+            h2
+                | Topic: 
+            select#topic(name='topic', form='createPledge')
+                option(value='Charitable Project') Charitable Project
+                option(value='Citizenship') Citizenship
+                option(value='Education Formal') Education Formal
+                option(value='Education Informal') Education Informal
+                option(value='Engagement') Engagement
+                option(value='Other') Other
+                option(value='Social Inclusion') Social Inclusion
+                option(value='Workforce Development') Workforce Development
+            h2#addressHeader Location:
+            #addressContainer
+                span
+                    p Please ensure this is a general area and NOT your exact home address
+                input#address(type='text', name='address', value='', dir='auto', aria-label='Location: Where will this happen? ', placeholder='Where will this happen?', aria-required='true', title='', required='')
+            a#continue1.button Continue
+        #stageTwo.section(style='display: none')
+            p.country
+                p 
+                    | When placing the marker (
+                    img(src='/images/pledge-marker.png')
+                    | ), we attempted to detect your country, if this is incorrect, please change it below...
+                select#pledgeCountry(name='country', form='createPledge')
+                    option(value='All') All
+                    option(value='England') England
+                    option(value='Northern Ireland') Northern Ireland
+                    option(value='Scotland') Scotland
+                    option(value='Wales') Wales
+            p.areYouSure
+                | If you are happy with the pinned location (
+                img(src='/images/pledge-marker.png')
+                | ), then click continue to proceed
+            p
+                | You can click the marker (
+                img(src='/images/pledge-marker.png')
+                | ) to drag its position, if required.
+            button#continue2 Continue
+        #stageThree.section(style='display: none')
+            h2 Email address:
+            input#email(type='email', name='email', value='', dir='auto', aria-label='Email address ', aria-required='true', title='', required='')
+            h2 Your FIRST name:
+            input#name(type='text', name='name', value='', dir='auto', aria-label='Your name ', aria-required='true', title='', required='')
+            h2 Your twitter handle:
+            #twitterHandleContainer
+                span @
+                input#twitterHandle(type='text', name='twitterHandle', value='', dir='auto', aria-label='Your twitter handle ', aria-required='true', title='', required='')
+            h2 Organization:
+            input#organisation(type='text', name='organisation', value='', dir='auto', aria-label='Organisation ', aria-required='true', title='', required='')
+            p
+                input#subscribe(type='checkbox', name='subscribe', value='Subscribe', role='checkbox')
+                | I don't want to receive updates from YCiF
+            p
+                input#pledgeSubmitHidden(type='submit', style='display:none')
+                button#pledgeSubmit
+                    span.text Submit
+                    span.spinner
+                        i.demo-icon.icon-spin1.animate-spin
+        #stageFour.section(style='display: none')
+            h2.centerText Thank you for your pledge!
+            p.centerText Now share your pledge with the world...
+            script(type='text/javascript', async='', src='https://platform.twitter.com/widgets.js')
+            a#twitterShare.button.tweet
+                i.icon-twitter
+                | Share on Twitter

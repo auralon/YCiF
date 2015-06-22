@@ -1,0 +1,37 @@
+#contact.content
+    p
+        | Young Carers in Focus is led by The Children’s Society.
+        | If you would like to speak to us about making a pledge or 
+        | how we might support you, please get in touch. You can 
+        | contact us directly via the details below.
+    form(action='/contact', id='contactForm', method='post', accept-charset='utf-8')
+        input(type='hidden', name='_csrf', value='#{csrfToken}')
+        h2 Get in Touch...
+        input#contactName.required.half(type='text', name='name', value='', dir='auto', aria-label='Name ', aria-required='true', required='', placeholder='name', title='')
+        input#contactCompany.required.half(type='text', name='company', value='', dir='auto', aria-label='Company ', aria-required='true', required='', placeholder='company', title='')
+        input#contactEmail.required.half(type='email', name='email', value='', dir='auto', aria-label='Email ', aria-required='true', required='', placeholder='email', title='')
+        input#contactPhone.required.half(type='text', name='phone', value='', dir='auto', aria-label='Phone ', aria-required='true', required='', placeholder='phone', title='')
+        textarea#message.required(name='message', rows='4', cols='55', dir='auto', aria-label='Your message...  ', aria-required='true', required='', placeholder='message')
+        input#contactSubmitHidden(type='submit', style='display:none')
+        button#contactSubmit
+            span.text Submit
+            span.spinner
+                i.demo-icon.icon-spin1.animate-spin
+    #contactDetails
+        hr
+        ul
+            li 
+                span The Children’s Society Include Programme
+            li Unit 4 Calford House
+            li Wessex Business Park
+            li Wessex Way
+            li SO21 1WP
+        ul
+            li
+                span Telephone
+            li
+                a(href='tel:+441132456445') 0113 245 6445
+            li
+                span Email
+            li
+                a(href='mailto:include@childrenssociety.org.uk') include@childrenssociety.org.uk 

@@ -1,0 +1,48 @@
+aside(class=("#{device}" == "phone" ? "closed" : undefined))
+    .buttons-container
+        button#toggleSidebar(type='button', role='button', aria-label='Toggle Navigation', class=("#{device}" == "phone" ? "lines-button arrow arrow-left closed" : "lines-button arrow arrow-left close"))
+            span.lines
+    #logoContainer
+        img#logo(src='/images/logo.png', alt='')
+    ul#tabs
+        li.active
+            a(href='#', data-content='pledge') Pledge
+        li
+            a(href='#', data-content='about') About
+        li
+            a(href='#', data-content='twitter') Twitter
+        li
+            a(href='#', data-content='contact') Contact
+        li
+            a(href='#', data-content='search') Search
+    #content.pledge
+        include ./sidebar/pledge.jade
+        include ./sidebar/about.jade
+        include ./sidebar/twitter.jade
+        include ./sidebar/contact.jade
+        include ./sidebar/search.jade
+    #sidebarFooter
+        span
+            a.social(href='https://twitter.com/ycif_tweets', title='twitter')
+                i.icon-twitter
+            a.social(href='#', title='facebook')
+                i.icon-facebook
+        span
+            span
+                a.affiliatesLink(href='http://www.childrenssociety.org.uk/')
+                    img.affiliates(src='/images/cs.jpg', alt='Children\'s Society')
+            span
+                a.affiliatesLink(href='http://www.digitalme.co.uk/')
+                    img.affiliates(src='/images/digitalme.png', alt='Digital Me Leeds')
+            span
+                a.affiliatesLink(href='http://www.fatherhoodinstitute.org/')
+                    img.affiliates(src='/images/fatherhood.jpg', alt='Fatherhood Institute')
+            span
+                a.affiliatesLink(href='http://makewav.es/')
+                    img.affiliates(src='/images/makewaves.jpg', alt='Makewav.es')
+            span
+                a.affiliatesLink(href='http://www.rethink.org/')
+                    img.affiliates(src='/images/rethink.png', alt='Rethink Mental Illness')
+            span
+                a.affiliatesLink(href='http://www.ymca-fg.org/')
+                    img.affiliates(src='/images/ymca.jpg', alt='YMCA')
