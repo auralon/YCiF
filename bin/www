@@ -31,14 +31,10 @@ app.set('port', port);
 var server = http.createServer(app);
 
 /**
- * Create the virtual hosts
+ * Create and use the virtual hosts
  */
 // var localHost = createVirtualHost("ycif.dev", ".");
-
-/**
- * Use the virtual hosts
- */
-app.use(localHost);
+// app.use(localHost);
 
 /**
  * Listen on provided port, on all network interfaces.
