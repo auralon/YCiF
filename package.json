@@ -1,9 +1,9 @@
 {
-  "name": "badgetheworld",
-  "version": "2.0.0",
+  "name": "ycif",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node bin/www"
   },
   "author": "Keith Hill <keith@bluemantis.com>",
   "license": "MPL",
