@@ -21,7 +21,7 @@ function createVirtualHost(domainName, dirPath) {
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3099');
 app.set('port', port);
 
 /**
@@ -31,14 +31,14 @@ app.set('port', port);
 var server = http.createServer(app);
 
 /**
- * Create and use the virtual hosts
+ * Create the virtual hosts
  */
-// var localHost = createVirtualHost("ycif.dev", ".");
-// app.use(localHost);
+// var localHost = createVirtualHost("www.ycif.dev", ".");
 
 /**
- * Listen on provided port, on all network interfaces.
+ * Use the virtual hosts
  */
+// app.use(localHost);
 
 server.listen(port);
 server.on('error', onError);
