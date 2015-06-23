@@ -1003,7 +1003,12 @@ body.phone {
 		min-width: 400px;
 	}
 }
-
+@media screen and (max-width: 1280px) {
+	#modal {
+		width: 550px;
+		margin-left: -225px;
+	}
+}
 @media screen and (min-width: 1450px){
 	a.social i {
 		font-size: 1.35rem;
