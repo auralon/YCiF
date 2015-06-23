@@ -13,46 +13,26 @@ block admin-content
 		input(type='hidden', name='id', value='#{ pledge.uid }')
 		input(type='hidden', name='lat', value='#{ pledge.lat }')
 		input(type='hidden', name='lon', value='#{ pledge.lon }')
-		h2 5 ways to pledge to become a Badge partner:
-		ul.plain
-			li
-				input#createBadge(type='checkbox', name='createBadge', value='Create or Design Badges', role='checkbox', checked=(pledge.fiveWays.indexOf("Create or Design Badges") !== -1 ? "checked" : undefined))
-				| Create or Design Badges
-			li
-				input#issueBadge(type='checkbox', name='issueBadge', value='Issue Badges', role='checkbox', checked=(pledge.fiveWays.indexOf("Issue Badges") !== -1 ? "checked" : undefined))
-				| Issue Badges
-			li
-				input#displayBadge(type='checkbox', name='displayBadge', value='Display Badges', role='checkbox', checked=(pledge.fiveWays.indexOf("Display Badges") !== -1 ? "checked" : undefined))
-				| Display Badges
-			li
-				input#researchBadge(type='checkbox', name='researchBadge', value='Research Badges', role='checkbox', checked=(pledge.fiveWays.indexOf("Research Badges") !== -1 ? "checked" : undefined))
-				| Research Badges
-			li
-				input#joinBadge(type='checkbox', name='joinBadge', value='Join the Badging Conversation', role='checkbox', checked=(pledge.fiveWays.indexOf("Join the Badging Conversation") !== -1 ? "checked" : undefined))
-				| Join the Badging Conversation
 		h2
-			| Tell us about your badging ideas... 
+			| Tell us about how you are going to influence change for young carers...
 			span.required *
-		textarea#idea.required.form-control.limit(name='idea', rows='8', cols='55', dir='auto', aria-label='Tell us about your badging ideas...  ', aria-required='true', required='') #{ pledge.idea }
+		textarea#how.required.form-control.limit(name='how', rows='8', cols='55', dir='auto', aria-label='Tell us about how you are going to influence change for young carers...  ', aria-required='true', required='') #{ pledge.how }
 		h2
-			| Topic: 
-		select#topic.form-control.limit(name='topic', form='updatePledge')
-			option(value='Charitable Project', selected=(pledge.topic == "Charitable Project" ? true : undefined)) Charitable Project
-			option(value='Citizenship', selected=(pledge.topic == "Citizenship" ? true : undefined)) Citizenship
-			option(value='Education Formal', selected=(pledge.topic == "Education Formal" ? true : undefined)) Education Formal
-			option(value='Education Informal', selected=(pledge.topic == "Education Informal" ? true : undefined)) Education Informal
-			option(value='Engagement', selected=(pledge.topic == "Engagement" ? true : undefined)) Engagement
-			option(value='Other', selected=(pledge.topic == "Other" ? true : undefined)) Other
-			option(value='Social Inclusion', selected=(pledge.topic == "Social Inclusion" ? true : undefined)) Social Inclusion
-			option(value='Workforce Development', selected=(pledge.topic == "Workforce Development" ? true : undefined)) Workforce Development
-			option(value='Unassigned', selected=(pledge.topic == "Unassigned" ? true : undefined)) Unassigned
-		h2
-			| How many people will your badging efforts impact? 
-			span *
-		p.sub Be ambitious...
-		input#numberOfPeople.required.form-control.limit(type='text', name='numberOfPeople', value='#{ pledge.numberOfPeople }', dir='auto', aria-label='How many people will your badging efforts impact? Be ambitious... ', aria-required='true', required='', title='')
-		h2 Address:
-		p Where will this happen?
+			| How are you going to influence change? : 
+		select#means.form-control.limit(name='means', form='updatePledge')
+			option(value='Don’t Know', selected=(pledge.means == "Don’t Know" ? true : undefined)) Don’t Know
+			option(value='Fund Raise', selected=(pledge.means == "Fund Raise" ? true : undefined)) Fund Raise
+			option(value='Implement Changes To Policy', selected=(pledge.means == "Implement Changes To Policy" ? true : undefined)) Implement Changes To Policy
+			option(value='Put On An Event', selected=(pledge.means == "Put On An Event" ? true : undefined)) Put On An Event
+			option(value='Raise Public Awareness', selected=(pledge.means == "Raise Public Awareness" ? true : undefined)) Raise Public Awareness
+			option(value='Something Else', selected=(pledge.means == "Something Else" ? true : undefined)) Something Else
+			option(value='Speak Out', selected=(pledge.means == "Speak Out" ? true : undefined)) Speak Out
+			option(value='Use Signatures', selected=(pledge.means == "Use Signatures" ? true : undefined)) Use Signatures
+			option(value='Young Carer’s In Schools Award - Apply', selected=(pledge.means == "Young Carer’s In Schools Award - Apply" ? true : undefined)) Young Carer’s In Schools Award - Apply
+			option(value='Young Carer’s In Schools Award - Next Level', selected=(pledge.means == "Young Carer’s In Schools Award - Next Level" ? true : undefined)) Young Carer’s In Schools Award - Next Level
+			option(value='Unassigned', selected=(pledge.means == "Unassigned" ? true : undefined)) Unassigned
+		h2 Location:
+		p Please ensure this is a general area and NOT your exact home address
 		div.limit.flex
 			input#address.form-control(type='text', name='address', value='#{ pledge.location }', dir='auto', aria-label='Location: Where will this happen? ', aria-required='true', title='')
 			button#update.btn.btn-info Search
@@ -64,7 +44,7 @@ block admin-content
 		a(name='map', href='#')
 		h2 Email address
 		input#email.form-control.limit(type='email', name='email', value='#{ pledge.email }', dir='auto', aria-label='Email address ', aria-required='true', title='')
-		h2 Your name
+		h2 Your FIRST name
 		input#name.form-control.limit(type='text', name='name', value='#{ pledge.name }', dir='auto', aria-label='Your name ', aria-required='true', title='')
 		h2 Your twitter handle
 		input#twitterHandle.form-control.limit(type='text', name='twitterHandle', value='#{ pledge.twitterHandle }', dir='auto', aria-label='Your twitter handle ', aria-required='true', title='')

@@ -2,27 +2,28 @@
     form#createPledge(action='/createPledge', method='post', accept-charset='utf-8')
         #stageOne.section
             p
-                | Pledge your support for Badge the World! Badge the World is the new social
-                | and technology movement to capture recognition for learning that happens
-                | anywhere.
+                | Add your pledge pin to the map to tell us what you’re going 
+                | to be doing to influence change for young carers.
             input(type='hidden', name='_csrf', value='#{csrfToken}')
             input(type='hidden', name='lat', value='')
             input(type='hidden', name='lon', value='')
             h2
                 | Tell us about how you are going to influence change for young carers... 
                 span.required *
-            textarea#idea.required(name='idea', rows='4', cols='55', dir='auto', aria-label='Tell us about your badging ideas...  ', aria-required='true', required='')
+            textarea#how.required(name='how', rows='4', cols='55', dir='auto', aria-label='Tell us about how you are going to influence change for young carers...  ', aria-required='true', required='')
             h2
-                | Topic: 
-            select#topic(name='topic', form='createPledge')
-                option(value='Charitable Project') Charitable Project
-                option(value='Citizenship') Citizenship
-                option(value='Education Formal') Education Formal
-                option(value='Education Informal') Education Informal
-                option(value='Engagement') Engagement
-                option(value='Other') Other
-                option(value='Social Inclusion') Social Inclusion
-                option(value='Workforce Development') Workforce Development
+                | How are you going to influence change? 
+            select#means(name='means', form='createPledge')
+                option(value='Don’t Know') Don’t Know
+                option(value='Fund Raise') Fund Raise
+                option(value='Implement Changes To Policy') Implement Changes To Policy
+                option(value='Put On An Event') Put On An Event
+                option(value='Raise Public Awareness') Raise Public Awareness
+                option(value='Something Else') Something Else
+                option(value='Speak Out') Speak Out
+                option(value='Use Signatures') Use Signatures
+                option(value='Young Carer’s In Schools Award - Apply') Young Carer’s In Schools Award - Apply
+                option(value='Young Carer’s In Schools Award - Next Level') Young Carer’s In Schools Award - Next Level
             h2#addressHeader Location:
             #addressContainer
                 span

@@ -38,7 +38,12 @@ block scripts
 			var southWest = L.latLng(48.019324, -14.490967),
 				northEast = L.latLng(60.141505, 3.064697),
 				bounds = L.latLngBounds(southWest, northEast);
-			var map = L.map('map', { tileLayer: { noWrap: false}, minZoom: 5, maxBounds: bounds }).setView([53.7974185, -1.5437941], 5);
+
+			if (isMobile) {
+				var map = L.map('map', { tileLayer: { noWrap: false}, minZoom: 5, maxBounds: bounds }).setView([53.7974185, -1.5437941], 5);
+			} else {
+				var map = L.map('map', { tileLayer: { noWrap: false}, minZoom: 6, maxBounds: bounds }).setView([53.7974185, -7.5437941], 6);
+			}
 
 			L.tileLayer('http://otile1.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
 				attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>. Tiles courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a>',
@@ -64,14 +69,16 @@ block scripts
 			});
 
 			var icons = {
-				"Charitable Project": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_dark_blue_24x24.png'}),
-				"Citizenship": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_dark_green_24x24.png'}),
-				"Education Formal": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_light_blue_24x24.png'}),
-				"Education Informal": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_light_green_24x24.png'}),
-				"Engagement": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_orange_24x24.png'}),
-				"Other": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_pink_24x24.png'}),
-				"Social Inclusion": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_purple_24x24.png'}),
-				"Workforce Development": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_red_24x24.png'}),
+				"Don’t Know": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_dark_blue_24x24.png'}),
+				"Fund Raise": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_dark_green_24x24.png'}),
+				"Implement Changes To Policy": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_light_blue_24x24.png'}),
+				"Put On An Event": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_light_green_24x24.png'}),
+				"Raise Public Awareness": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_orange_24x24.png'}),
+				"Something Else": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_pink_24x24.png'}),
+				"Speak Out": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_purple_24x24.png'}),
+				"Use Signatures": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_red_24x24.png'}),
+				"Young Carer’s In Schools Award - Apply": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_wine_24x24.png'}),
+				"Young Carer’s In Schools Award - Next Level": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_yellow_24x24.png'}),
 				"Unassigned": new LeafIcon({iconUrl: '/images/spritesheet_images/24x24/marker_grey_24x24.png'}),
 				pledge: new LeafIcon({iconUrl: '/images/pledge-marker.png'})
 			}
@@ -102,15 +109,15 @@ block scripts
 
 				if (entry.lat !== "" && entry.lon !== "") {
 
-					var description = '<pre>' + entry.idea.replace(/(?:\\[rn])+/g, "\r\n\r\n") + '</pre>';
+					var description = '<pre>' + entry.how.replace(/(?:\\[rn])+/g, "\r\n\r\n") + '</pre>';
 
 					if (entry.created_at) {
 						var date = new Date(entry.created_at);
 						description += '<b>Date of pledge:</b> ' + date.toDateString() + '<br>';
 					}
 
-					if (entry.topic) {
-						description += '<b>Topic:</b> ' + entry.topic + '<br>';
+					if (entry.means) {
+						description += '<b>Means:</b> ' + entry.means + '<br>';
 					}
 
 					if (entry.twitterHandle) {
@@ -123,7 +130,7 @@ block scripts
 					var marker = L.marker(
 						[ entry.lat, entry.lon ],
 						{
-							icon: icons[entry.topic],
+							icon: icons[entry.means],
 							title: entry.location,
 						}
 					).bindPopup(description);
@@ -142,7 +149,7 @@ block scripts
 					});
 
 					// configure additional custom marker properties
-					marker.topic = entry.topic;
+					marker.means = entry.means;
 					marker.timeframe = entry.timeframe;
 					marker.country = entry.country;
 					marker.uid = entry.uid;
@@ -329,7 +336,7 @@ block scripts
 				$('#continue1').html('Continue');
 				$('#pledgeSubmit').prop('disabled', false);
 				$('#pledgeSubmit').find('span.text').html('Submit');
-				$('#idea, #numberOfPeople, #address, #email, #name, #twitterHandle, #organisation').val('');
+				$('#how, #address, #email, #name, #twitterHandle, #organisation').val('');
 				$('#pledge input[type=checkbox]').prop('checked', false);
 				formComplete = false;
 			}
@@ -434,7 +441,7 @@ block scripts
 				
 				for (var i = pledges.length - 1; i >= 0; i--) {
 					if ((pledges[i].country.toLowerCase().indexOf(term) !== -1) || 
-						(pledges[i].idea.toLowerCase().indexOf(term) !== -1) || 
+						(pledges[i].how.toLowerCase().indexOf(term) !== -1) || 
 						(pledges[i].twitterHandle.toLowerCase().indexOf(term) !== -1) || 
 						(pledges[i].location.toLowerCase().indexOf(term) !== -1)) {
 						results.push(pledges[i]);
@@ -448,15 +455,11 @@ block scripts
 
 				for (var i = results.length - 1; i >= 0; i--) {
 
-					var idea = results[i].idea.replace(/(?:\\[rn])+/g, "\r\n\r\n");
+					var how = results[i].how.replace(/(?:\\[rn])+/g, "\r\n\r\n");
 
 					var node =	'<li><h3>' + results[i].location + '</h3>' +
-									'<p><pre>' + idea + '</pre></p>' +
+									'<p><pre>' + how + '</pre></p>' +
 									'<ul>';
-
-					if (results[i].numberOfPeople) {
-						node += '<li><span>Number of people impacted:</span> ' + results[i].numberOfPeople + '</li>';
-					}
 
 					if (results[i].created_at) {
 						var date = new Date(results[i].created_at);
@@ -519,7 +522,7 @@ block scripts
 				filter();
 			});
 
-			$('a.filter.topic').on('click', function(e) {
+			$('a.filter.means').on('click', function(e) {
 				e.preventDefault();
 				$(this).toggleClass('active');
 
@@ -537,19 +540,19 @@ block scripts
 
 				var timeFilter = $('a.filter.time.active').data('time');
 
-				if ($('a.filter.topic.active').length > 0) {
+				if ($('a.filter.means.active').length > 0) {
 					// filters on
 					var activeFilters = [];
 
-					$.each($('a.filter.topic.active'), function(i, v) {
-						activeFilters.push($(v).data('topic'));
+					$.each($('a.filter.means.active'), function(i, v) {
+						activeFilters.push($(v).data('means'));
 					});
 
 					console.log(activeFilters)
 
 					$.each(markers, function(i, v) {
 						if (
-							($.inArray(markers[i].topic, activeFilters) !== -1) && 
+							($.inArray(markers[i].means, activeFilters) !== -1) && 
 							(timeFilter == "all" || markers[i].timeframe[timeFilter] == true) && 
 							((markers[i].country == country) ||	(country == "All") || ((country == "Europe") && ($.inArray(markers[i].country, europeanCountries) !== -1)))
 							) {

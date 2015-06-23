@@ -5,8 +5,8 @@ $(document).ready(function() {
 		for (var i = 0; i <=  data.length -1; i++) {
 
 			var row = '<tr>'
-					+ '<td>' + data[i].idea + '</td>'
-					+ '<td>' + data[i].topic + '</td>'
+					+ '<td>' + data[i].how + '</td>'
+					+ '<td>' + data[i].means + '</td>'
 					+ '<td>' + data[i].location + '</td>'
 					+ '<td>' + data[i].email + '</td>'
 					+ '<td>' + data[i].name + '</td>'

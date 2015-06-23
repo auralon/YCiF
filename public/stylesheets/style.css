@@ -39,7 +39,7 @@ a {
 	transition: color 300ms ease;
 }
 a:hover {
-	color: #EC008C;
+	color: #F17D43;
 }
 a.social i {
 	font-size: 1.2rem;
@@ -94,7 +94,7 @@ pre {
 	padding: 15px 0px 8px;
 }
 a.button {
-	background: #EC008C;
+	background: #F17D43;
 	color: white;
 	border: none;
 	border-radius: 3px;
@@ -264,7 +264,7 @@ aside.closed #toggleSidebar {
 #tabs li a {
 	font-weight: bold;
 	text-align: center;
-	color: #063A5A;
+	color: #446266;
 	font-weight: bold;
 }
 #tabs li.active {
@@ -272,16 +272,16 @@ aside.closed #toggleSidebar {
 	color: white;
 }
 #tabs li:first-of-type.active {
-	background: #B1CF37;
+	background: #7AC9D6;
 }
 #tabs li:nth-of-type(2).active {
-	background: #F48123;
+	background: #F05FA2;
 }
 #tabs li:nth-of-type(3).active {
-	background: #42C4E2;
+	background: #4BC48E;
 }
 #tabs li:nth-of-type(4).active {
-	background: #EC008C;
+	background: #F17D43;
 }
 #tabs li:nth-of-type(5).active {
 	background: #F2F2F2;
@@ -348,8 +348,8 @@ aside.closed #toggleSidebar {
 	opacity: 0.3;
 }
 #content.pledge {
-	background: repeating-linear-gradient( 30deg, #B9D44B, #B9D44B 50%, #B1CF37 50%, #B1CF37 100%);
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#B1CF37', EndColorStr='#B1CF37')";
+	background: repeating-linear-gradient( 30deg, #7FCEDB, #7FCEDB 50%, #7AC9D6 50%, #7AC9D6 100%);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#7AC9D6', EndColorStr='#7AC9D6')";
 	border-radius: 0 3px 3px 3px;
 }
 #twitterHandleContainer, #addressContainer {
@@ -379,12 +379,13 @@ aside.closed #toggleSidebar {
 	padding: 10px 40px 10px 10px;
 }
 #content.about {
-	background: repeating-linear-gradient( 30deg, #F58D39, #F58D39 50%, #F48123 50%, #F48123 100%);
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#F48123', EndColorStr='#F48123')";
+	color: white;
+	background: repeating-linear-gradient( 30deg, #F564A7, #F564A7 50%, #F05FA2 50%, #F05FA2 100%);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#F05FA2', EndColorStr='#F05FA2')";
 }
 #content.twitter {
-	background: repeating-linear-gradient( 30deg, #55CAE5, #55CAE5 50%, #42C4E2 50%, #42C4E2 100%);
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#42C4E2', EndColorStr='#42C4E2')";
+	background: repeating-linear-gradient( 30deg, #50C993, #50C993 50%, #4BC48E 50%, #4BC48E 100%);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#4BC48E', EndColorStr='#4BC48E')";
 	color: white;
 }
 #content.twitter h4 {
@@ -412,8 +413,8 @@ aside.closed #toggleSidebar {
 	border-bottom: none;
 }
 #content.contact {
-	background: repeating-linear-gradient( 30deg, #EE1997, #EE1997 50%, #EC008C 50%, #EC008C 100%);
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#EC008C', EndColorStr='#EC008C')";
+	background: repeating-linear-gradient( 30deg, #F68248, #F68248 50%, #F17D43 50%, #F17D43 100%);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#F17D43', EndColorStr='#F17D43')";
 	color: white;
 }
 #contactForm {
@@ -442,7 +443,7 @@ hr {
 	text-decoration: none;
 }
 #contactDetails ul li span {
-	color: #F57DC4;
+	color: #446266;
 }
 #contactLink {
 	width: 100%;
@@ -504,7 +505,7 @@ hr {
 	outline: none;
 }
 #content span.required {
-	color: #777;
+	color: #C24A4A;
 	font-size: 0.8rem;
 	vertical-align: top;
 }
@@ -545,7 +546,7 @@ hr {
 	margin-right: 15px;
 }
 #content button, #content a.button, input[type=submit] {
-	background: #063A5A;
+	background: #446266;
 	color: white;
 	border: none;
 	border-radius: 3px;
@@ -613,36 +614,48 @@ hr {
 #content a.filter > span:first-of-type span.calendarAll {
 	background-position: 0px -72px;
 }
-#content a.filter > span:first-of-type span.charitableProject {
+/* DARK BLUE */
+#content a.filter > span:first-of-type span.donTKnow {
 	background-position: 0px -96px; 
 }
-#content a.filter > span:first-of-type span.citizenship {
+/* DARK GREEN */
+#content a.filter > span:first-of-type span.fundRaise {
 	background-position: 0px -120px; 
 }
-#content a.filter > span:first-of-type span.educationFormal {
+/* LIGHT BLUE */
+#content a.filter > span:first-of-type span.implementChangesToPolicy {
 	background-position: 0px -144px; 
 }
-#content a.filter > span:first-of-type span.educationInformal {
+/* LIGHT GREEN */
+#content a.filter > span:first-of-type span.putOnAnEvent {
 	background-position: 0px -168px; 
 }
-#content a.filter > span:first-of-type span.engagement {
+/* ORANGE */
+#content a.filter > span:first-of-type span.raisePublicAwareness {
 	background-position: 0px -192px; 
 }
-#content a.filter > span:first-of-type span.other {
+/* PINK */
+#content a.filter > span:first-of-type span.somethingElse {
 	background-position: 0px -216px; 
 }
-#content a.filter > span:first-of-type span.socialInclusion {
+/* PURPLE */
+#content a.filter > span:first-of-type span.speakOut {
 	background-position: 0px -240px; 
 }
-#content a.filter > span:first-of-type span.workforceDevelopment {
+/* RED */
+#content a.filter > span:first-of-type span.useSignatures {
 	background-position: 0px -264px; 
 }
-#content a.filter > span:first-of-type span.vocational {
+/* WINE */
+#content a.filter > span:first-of-type span.youngCarerSInSchoolsAwardApply {
 	background-position: 0px -288px; 
 }
-#content a.filter > span:first-of-type span.careers {
+/* YELLOW */
+#content a.filter > span:first-of-type span.youngCarerSInSchoolsAwardNextLevel {
 	background-position: 0px -312px; 
 }
+
+/* GREY */
 #content a.filter > span:first-of-type span.unassigned {
 	background-position: 0px -336px; 
 }
@@ -806,7 +819,7 @@ select {
  SEARCH
  */
 #searchTermCount {
-	color: #EC008C;
+	color: #F17D43;
 }
 
 #searchResultsList {
@@ -836,7 +849,7 @@ select {
 }
 
 #searchResultsList span.highlight {
-	color: #EC008C !important;
+	color: #F17D43 !important;
 }
 
 #searchResultsList li {
@@ -850,7 +863,7 @@ select {
 	position: absolute;
 	right: 0;
 	bottom: 0;
-	background: #42C4E2;
+	background: #4BC48E;
 	color: white;
 	text-decoration: none;
 	font-weight: bold;
@@ -996,7 +1009,7 @@ body.phone {
 		font-size: 1.35rem;
 	}
 }
-@media screen and (min-width: 1600px){
+@media screen and (min-width: 1600px){	
 	a.social i {
 		font-size: 1.4rem;
 	}

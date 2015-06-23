@@ -6,7 +6,7 @@ function sequenceGenerator(name){
     var SequenceSchema, Sequence;
 
     SequenceSchema = new mongoose.Schema({
-    nextSeqNumber: { type: Number, default: 500 }
+    nextSeqNumber: { type: Number, default: 1 }
     });
 
     Sequence = mongoose.model(name + 'Seq', SequenceSchema);
@@ -38,8 +38,8 @@ var sequence = sequenceGenerator('pledge');
 
 var Pledge = new Schema({
     uid             : Number,
-    idea            : String,
-    topic           : String,
+    how             : String,
+    means           : String,
     location        : String,
     country         : String,
     lat             : String,

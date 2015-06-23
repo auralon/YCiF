@@ -46,7 +46,7 @@ mailer.extend(app, {
 });
 
 var sendPledgeEmail = function(res, pledge, callback) {
-	var notificationAddresses = (process.env.PLEDGE_NOTIFICATION_ADDRESSES !== undefined) ? process.env.PLEDGE_NOTIFICATION_ADDRESSES : 'example@gmail.com';
+	var notificationAddresses = (process.env.PLEDGE_NOTIFICATION_ADDRESSES !== undefined) ? process.env.PLEDGE_NOTIFICATION_ADDRESSES : 'notificationRecipient@example.com';
 	app.mailer.send('emails/pledge', {
 		to: notificationAddresses, // REQUIRED. This can be a comma delimited string just like a normal email to field.
 		subject: 'New Pledge!', // REQUIRED.
@@ -59,7 +59,7 @@ var sendPledgeEmail = function(res, pledge, callback) {
 }
 
 var sendContactEmail = function(res, post, callback) {
-	var notificationAddresses = (process.env.CONTACT_NOTIFICATION_ADDRESSES !== undefined) ? process.env.CONTACT_NOTIFICATION_ADDRESSES : 'example@gmail.com';
+	var notificationAddresses = (process.env.CONTACT_NOTIFICATION_ADDRESSES !== undefined) ? process.env.CONTACT_NOTIFICATION_ADDRESSES : 'notificationRecipient@example.com';
 	app.mailer.send('emails/contact', {
 		to: notificationAddresses, // This can be a comma delimited string just like a normal email to field.
 		subject: 'New Badge the World contact submission',
@@ -86,7 +86,7 @@ router.get('/', csrfProtection, function (req, res) {
 
 	res.render('index', 
 		{
-			title: "YCiF",
+			title: "YCiF - Young Carers in Focus",
 			pledge : qs.pledge,
 			showModal: showModal,
 			user : req.user,
@@ -141,8 +141,8 @@ router.post('/createPledge', csrfProtection, function(req, res) {
 
 	var pledge = new Pledge({
 		fiveWays: fiveWays.join(", "),
-		idea : (req.body.idea ? req.body.idea : ""),
-		topic : req.body.topic,
+		how : (req.body.how ? req.body.how : ""),
+		means : req.body.means,
 		numberOfPeople : (req.body.numberOfPeople ? req.body.numberOfPeople : ""),
 		location : (req.body.address ? req.body.address : ""),
 		country : req.body.country,
@@ -215,8 +215,8 @@ router.post('/updatePledge', csrfProtection, function(req, res) {
 			if (req.body.joinBadge) fiveWays.push("Join the Badging Conversation");
 
 			doc.fiveWays = fiveWays.join(", ");
-			doc.idea = (req.body.idea ? req.body.idea : "");
-			doc.topic = req.body.topic;
+			doc.how = (req.body.how ? req.body.how : "");
+			doc.means = req.body.means;
 			doc.numberOfPeople = (req.body.numberOfPeople ? req.body.numberOfPeople : "");
 			doc.location = (req.body.address ? req.body.address : "");
 			doc.lat = (req.body.lat ? req.body.lat : "");
@@ -309,8 +309,8 @@ router.get('/download', function(req, res) {
 		var csvData = [];
 
 		var headers = {
-			idea: 'Tell us about your badging ideas',
-			topic: 'Topic',
+			how: 'How are you going to influence change for young carers',
+			means: 'Means of influencing change',
 			location: 'Location',
 			email: 'Email Address',
 			name: 'Name',
@@ -323,8 +323,8 @@ router.get('/download', function(req, res) {
 			var date = new Date(data[i].created_at);
 			date = date.toISOString().substr(0, 19).replace('T', ' ');
 			csvData.push({
-				idea: data[i].idea,
-				topic: data[i].topic,
+				how: data[i].how,
+				means: data[i].means,
 				location: data[i].location,
 				email: data[i].email,
 				name: data[i].name,
