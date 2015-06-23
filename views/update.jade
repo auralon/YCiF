@@ -18,7 +18,7 @@ block admin-content
 			span.required *
 		textarea#how.required.form-control.limit(name='how', rows='8', cols='55', dir='auto', aria-label='Tell us about how you are going to influence change for young carers...  ', aria-required='true', required='') #{ pledge.how }
 		h2
-			| How are you going to influence change? : 
+			| How are you going to influence change?
 		select#means.form-control.limit(name='means', form='updatePledge')
 			option(value='Don’t Know', selected=(pledge.means == "Don’t Know" ? true : undefined)) Don’t Know
 			option(value='Fund Raise', selected=(pledge.means == "Fund Raise" ? true : undefined)) Fund Raise
@@ -70,7 +70,7 @@ block admin-scripts
 				$button.text('Search');
 
 				var address = encodeURIComponent($('#address').val());
-				var url = 'http://nominatim.openstreetmap.org/search?q=' + address + '&format=json';
+				var url = 'https://nominatim.openstreetmap.org/search?q=' + address + '&format=json';
 
 				$.get(url, function(response) {
 					if (typeof response[0] !== "undefined") {
