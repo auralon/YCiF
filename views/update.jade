@@ -52,7 +52,7 @@ block admin-content
 		input#organisation.form-control.limit(type='text', name='organisation', value='#{ pledge.organisation }', dir='auto', aria-label='Organisation ', aria-required='true', title='')
 		p#subscribeContainer
 			input#subscribe(type='checkbox', name='subscribe', value='Subscribe', role='checkbox', checked=(pledge.subscribe == 'N' ? "checked" : undefined))
-			| I don't want to receive updates from Badge The World
+			| I don't want to receive updates from YCiF
 		p
 			input#submit(type='submit', name='submit', value='Submit', class="btn btn-success")
 
