@@ -394,6 +394,10 @@ aside.closed #toggleSidebar {
 	text-transform: uppercase;
 	margin: 0;
 }
+#content.twitter h4 span {
+	font-size: 1rem;
+	color: #187451;
+}
 #twitterFeed {
 	margin: 0;
 	padding: 0;
@@ -726,7 +730,7 @@ hr {
 	position: absolute;
 	top: -46px;
 	left: 50%;
-	margin-left: -121px;
+	margin-left: -215px;
 }
 
 #modal h3 {
