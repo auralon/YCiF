@@ -726,11 +726,11 @@ hr {
 	border-radius: 3px;
 }
 #modal img {
-	height: 100px;
 	position: absolute;
-	top: -46px;
+	top: -30px;
 	left: 50%;
-	margin-left: -215px;
+	margin-left: -130px;
+	width: 260px;
 }
 
 #modal h3 {
