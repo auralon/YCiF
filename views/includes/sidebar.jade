@@ -3,7 +3,8 @@ aside(class=("#{device}" == "phone" ? "closed" : undefined))
         button#toggleSidebar(type='button', role='button', aria-label='Toggle Navigation', class=("#{device}" == "phone" ? "lines-button arrow arrow-left closed" : "lines-button arrow arrow-left close"))
             span.lines
     #logoContainer
-        img#logo(src='/images/logo.png', alt='')
+        h1 Young Carers 
+            span In Focus
     ul#tabs
         li.active
             a(href='#', data-content='pledge') Pledge
@@ -27,20 +28,20 @@ aside(class=("#{device}" == "phone" ? "closed" : undefined))
                 i.icon-twitter
         span
             span
-                a.affiliatesLink(href='http://www.childrenssociety.org.uk/')
-                    img.affiliates(src='/images/cs.jpg', alt='Children\'s Society')
-            span
-                a.affiliatesLink(href='http://www.digitalme.co.uk/')
-                    img.affiliates(src='/images/digitalme.png', alt='Digital Me Leeds')
-            span
-                a.affiliatesLink(href='https://www.biglotteryfund.org.uk/')
-                    img.affiliates(src='/images/biglottery.jpg', alt='Big Lottery Fund')
-            span
                 a.affiliatesLink(href='http://www.fatherhoodinstitute.org/')
                     img.affiliates(src='/images/fatherhood.jpg', alt='Fatherhood Institute')
+            span
+                a.affiliatesLink(href='http://www.ymca-fg.org/')
+                    img.affiliates(src='/images/ymca.jpg', alt='YMCA')
             span
                 a.affiliatesLink(href='http://www.rethink.org/')
                     img.affiliates(src='/images/rethink.png', alt='Rethink Mental Illness')
             span
-                a.affiliatesLink(href='http://www.ymca-fg.org/')
-                    img.affiliates(src='/images/ymca.jpg', alt='YMCA')
+                a.affiliatesLink(href='http://www.digitalme.co.uk/')
+                    img.affiliates(src='/images/digitalme.png', alt='Digital Me Leeds')
+            span
+                a.affiliatesLink(href='http://www.childrenssociety.org.uk/')
+                    img.affiliates(src='/images/cs.jpg', alt='Children\'s Society')
+            span
+                a.affiliatesLink(href='https://www.biglotteryfund.org.uk/')
+                    img.affiliates(src='/images/biglottery.jpg', alt='Big Lottery Fund')
